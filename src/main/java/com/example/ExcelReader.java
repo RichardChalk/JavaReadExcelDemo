@@ -19,11 +19,22 @@ public class ExcelReader {
       Sheet sheet = workbook.getSheetAt(0);
 
       for (Row row : sheet) {
-        // Skapa ett objekt av Customer för varje rad och lägg till i dataList
-        Customer customer = new Customer();
-        customer.setFirstName(row.getCell(1).getStringCellValue());
-        // customer.setEmail(row.getCell(1).getStringCellValue());
-        // Sätt andra fält baserat på cellvärden
+        if (row.getRowNum() == 0) { // Skippar första raden (rubrikerna)
+          continue;
+        }
+
+        // Läs data från varje cell i raden och skapa ett Customer-objekt
+        int customerID = (int) row.getCell(0).getNumericCellValue();
+        String firstName = row.getCell(1).getStringCellValue();
+        String lastName = row.getCell(2).getStringCellValue();
+        String phoneNumber = row.getCell(3).getStringCellValue();
+        String address = row.getCell(4).getStringCellValue();
+        String payingCustomer = row.getCell(5).getStringCellValue();
+        String doNotContact = row.getCell(6).getStringCellValue();
+
+        Customer customer = new Customer(customerID, firstName, lastName,
+            phoneNumber, address, payingCustomer,
+            doNotContact);
         dataList.add(customer);
       }
 

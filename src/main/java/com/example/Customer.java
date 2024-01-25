@@ -8,16 +8,16 @@ public class Customer {
   private String address;
   private String payingCustomer;
   private String doNotContact;
-  private boolean notUsefulColumn; // Antagande att detta är en boolesk värde
+  private String notUsefulColumn; // Antagande att detta är en boolesk värde
 
   // Empty Konstruktor
-  public Customer() {
-  }
+  // public Customer() {
+  // }
 
   // Konstruktor
   public Customer(int customerID, String firstName, String lastName,
       String phoneNumber, String address, String payingCustomer,
-      String doNotContact, boolean notUsefulColumn) {
+      String doNotContact) {
     this.customerID = customerID;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -25,7 +25,6 @@ public class Customer {
     this.address = address;
     this.payingCustomer = payingCustomer;
     this.doNotContact = doNotContact;
-    this.notUsefulColumn = notUsefulColumn;
   }
 
   // Getters och Setters
